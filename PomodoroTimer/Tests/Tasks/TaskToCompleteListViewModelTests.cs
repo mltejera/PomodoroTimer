@@ -41,6 +41,16 @@ namespace Tests
             Assert.AreEqual(viewModel.NewTaskDescription, "A new task");
         }
 
+        [TestMethod]
+        public void TestTaskToCompleteViewModelAddThreeTasks()
+        {
+            TaskToCompleteListViewModel viewModel = new TaskToCompleteListViewModel();
 
+            viewModel.AddTaskToComplete();
+            viewModel.AddTaskToComplete();
+            viewModel.AddTaskToComplete();
+
+            Assert.AreEqual(viewModel.TaskToCompleteList.Count, 3);
+        }
     }
 }

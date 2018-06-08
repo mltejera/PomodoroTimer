@@ -216,3 +216,6 @@ E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\
 E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\PomodoroTimerLogic.pdb
 E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\PomodoroTimerLogic.pri
 E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\obj\x86\Debug\PomodoroTimer.csproj.GenerateResource.Cache
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\obj\x86\Debug\Themes\Generic.xaml
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\obj\x86\Debug\Themes\Generic.xbf
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\Themes\Generic.xbf

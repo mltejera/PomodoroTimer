@@ -6,10 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:controls="using:PomodoroTimer"
+    xmlns:viewModels="using:PomodoroTimerLogic.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
-        <TextBlock Text="{Binding TaskName, Mode=OneWay}" />
-        <TextBox Text="{Binding TaskName, Mode=TwoWay}" />
+    <StackPanel VerticalAlignment="Center">
+        <controls:TaskList />
     </StackPanel>
 </Page>

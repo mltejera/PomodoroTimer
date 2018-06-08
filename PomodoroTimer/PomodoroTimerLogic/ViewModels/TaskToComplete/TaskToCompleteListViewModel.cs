@@ -7,17 +7,31 @@ using System.Threading.Tasks;
 
 namespace PomodoroTimerLogic.ViewModels
 {
-    public class TaskToCompleteListViewModel
+    public class TaskToCompleteListViewModel : ViewModelBase
     {
         // TODO: Localize
         const string defaultNewTaskDescription = "A new task";
 
         public ObservableCollection<TaskToCompleteViewModel> TaskToCompleteList { get; set; }
 
+        public RelayCommand AddTaskCommand
+        {
+            get;
+            private set;
+        }
+
         public TaskToCompleteListViewModel()
         {
             this.TaskToCompleteList = new ObservableCollection<TaskToCompleteViewModel>();
             this.newTaskDescription = defaultNewTaskDescription;
+
+            this.AddTaskCommand = new RelayCommand(AddTaskToComplete);
+
+            // TODO DELETE DEBUG CODE
+            this.AddTaskToComplete();
+            this.AddTaskToComplete();
+            this.AddTaskToComplete();
+            this.AddTaskToComplete();
         }
 
         private string newTaskDescription;
@@ -25,14 +39,15 @@ namespace PomodoroTimerLogic.ViewModels
         public string NewTaskDescription
         {
             get { return newTaskDescription; }
-            set { newTaskDescription = value; }
+            set
+            {
+                newTaskDescription = value;
+                this.OnPropertyChanged("NewTaskDescription");
+            }
         }
 
-
-        public bool AddTaskToComplete()
+        public void AddTaskToComplete()
         {
-            bool success = false;
-
             if(this.TaskToCompleteList != null && !string.IsNullOrWhiteSpace(this.NewTaskDescription))
             { 
                 TaskToCompleteViewModel taskToComplete = new TaskToCompleteViewModel(this.NewTaskDescription);
@@ -40,11 +55,7 @@ namespace PomodoroTimerLogic.ViewModels
                 TaskToCompleteList.Add(taskToComplete);
 
                 this.NewTaskDescription = defaultNewTaskDescription;
-
-                success = true;
-            }
-
-            return success;            
+            }      
         }
     }
 }

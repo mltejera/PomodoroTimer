@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace PomodoroTimerLogic.ViewModels
 {
-    class MainPageViewModel
+    public class MainPageViewModel
     {
+        public TaskToCompleteListViewModel TaskToCompleteListViewModel { get; set; }
+
+        public MainPageViewModel()
+        {
+            this.TaskToCompleteListViewModel = new TaskToCompleteListViewModel();
+
+            this.addNewTasks();
+        }
+
+        private void addNewTasks()
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                this.TaskToCompleteListViewModel.AddTaskToComplete();
+            }
+        }
     }
 }
