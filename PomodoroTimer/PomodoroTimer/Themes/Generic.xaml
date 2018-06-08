@@ -45,7 +45,8 @@
 
                             <ScrollViewer Grid.ColumnSpan="2"
                                           Grid.Row="1"
-                                          HorizontalAlignment="Stretch">
+                                          HorizontalAlignment="Stretch"
+                                          Margin="0,8,0,8">
                                 <ItemsControl ItemTemplate="{StaticResource TaskToCompleteTemplate}"
                                               ItemsSource="{Binding TaskToCompleteList}"/>
                             </ScrollViewer>
