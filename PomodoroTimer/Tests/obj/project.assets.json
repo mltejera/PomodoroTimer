@@ -2298,6 +2298,19 @@
             "rid": "aot"
           }
         }
+      },
+      "PomodoroTimerLogic/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.10240",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.10240/win10-arm": {
@@ -4672,6 +4685,19 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "PomodoroTimerLogic/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.10240",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
         }
       }
     },
@@ -7084,6 +7110,19 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "PomodoroTimerLogic/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.10240",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.10240/win10-arm64-aot": {
@@ -9080,6 +9119,19 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "PomodoroTimerLogic/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.10240",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
         }
       }
     },
@@ -11464,6 +11516,19 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "PomodoroTimerLogic/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.10240",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
         }
       }
     },
@@ -13885,6 +13950,19 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "PomodoroTimerLogic/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.10240",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.10240/win10-x86": {
@@ -16268,6 +16346,19 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "PomodoroTimerLogic/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.10240",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
         }
       }
     },
@@ -18688,6 +18779,19 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "PomodoroTimerLogic/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.10240",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PomodoroTimerLogic.dll": {}
         }
       }
     }
@@ -28449,6 +28553,11 @@
         "ref/xamarinwatchos10/_._",
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
+    },
+    "PomodoroTimerLogic/1.0.0": {
+      "type": "project",
+      "path": "../PomodoroTimerLogic/PomodoroTimerLogic.csproj",
+      "msbuildProject": "../PomodoroTimerLogic/PomodoroTimerLogic.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -28456,7 +28565,8 @@
       "MSTest.TestAdapter >= 1.2.1",
       "MSTest.TestFramework >= 1.2.1",
       "Microsoft.NET.Test.Sdk >= 15.7.0",
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.1.5"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.1.5",
+      "PomodoroTimerLogic >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -28489,7 +28599,11 @@
       },
       "frameworks": {
         "uap10.0.10240": {
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\GitHubSource\\PomodoroTimer\\PomodoroTimer\\PomodoroTimer\\PomodoroTimerLogic\\PomodoroTimerLogic.csproj": {
+              "projectPath": "E:\\GitHubSource\\PomodoroTimer\\PomodoroTimer\\PomodoroTimer\\PomodoroTimerLogic\\PomodoroTimerLogic.csproj"
+            }
+          }
         }
       }
     },

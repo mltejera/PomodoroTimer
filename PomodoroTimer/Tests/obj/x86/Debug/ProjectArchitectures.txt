@@ -1,0 +1,2 @@
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimerLogic\PomodoroTimerLogic.csproj;x86
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\Tests\Tests.csproj;x86

@@ -8,7 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Text="Hello World" />
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="{Binding TaskName, Mode=OneWay}" />
+        <TextBox Text="{Binding TaskName, Mode=TwoWay}" />
+    </StackPanel>
 </Page>

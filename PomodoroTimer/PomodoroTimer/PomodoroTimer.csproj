@@ -131,6 +131,12 @@
       <Version>6.1.5</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PomodoroTimerLogic\PomodoroTimerLogic.csproj">
+      <Project>{2fe7b82b-be13-42d3-9344-a4441e222b17}</Project>
+      <Name>PomodoroTimerLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -212,3 +212,7 @@ E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\obj\x86\
 E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\obj\x86\Debug\qualifiers.txt.intermediate
 E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\obj\x86\Debug\ProjectArchitectures.txt
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\PomodoroTimerLogic.dll
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\PomodoroTimerLogic.pdb
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\PomodoroTimerLogic.pri
+E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\obj\x86\Debug\PomodoroTimer.csproj.GenerateResource.Cache
