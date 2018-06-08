@@ -10,14 +10,14 @@ namespace PomodoroTimerLogic.ViewModels
     {
         public TaskToComplete TaskModel { get; set; }
 
-        public string TaskName
+        public string TaskDescription
         {
             get { return this.TaskModel.TaskDescription; }
             set
             {
-                this.TaskModel.TaskDescription  = value;
-                this.OnPropertyChanged("TaskName");
-             }
+                this.TaskModel.TaskDescription = value;
+                this.OnPropertyChanged("TaskDescription");
+            }
         }
 
         public bool IsComplete
@@ -29,8 +29,7 @@ namespace PomodoroTimerLogic.ViewModels
                 this.OnPropertyChanged("IsComplete");
             }
         }
-
-
+        
         public TaskToCompleteViewModel()
         {
             this.TaskModel = new TaskToComplete();
@@ -38,6 +37,17 @@ namespace PomodoroTimerLogic.ViewModels
             this.TaskModel.IsComplete = false;
         }
 
+        public TaskToCompleteViewModel(string taskDescription)
+        {
+            this.TaskModel = new TaskToComplete();
+            this.TaskModel.TaskDescription = taskDescription;
+            this.TaskModel.IsComplete = false;
+        }
+
+        public void ToggleCompletion()
+        {
+            this.IsComplete = !this.TaskModel.IsComplete;
+        }
 
     }
 }

@@ -110,7 +110,8 @@
     <Compile Include="Models\Timer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="ViewModels\TaskToCompleteViewModel.cs" />
+    <Compile Include="ViewModels\TaskToComplete\TaskToCompleteListViewModel.cs" />
+    <Compile Include="ViewModels\TaskToComplete\TaskToCompleteViewModel.cs" />
     <Compile Include="ViewModels\TimerViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\PomodoroTimerLogic.rd.xml" />
