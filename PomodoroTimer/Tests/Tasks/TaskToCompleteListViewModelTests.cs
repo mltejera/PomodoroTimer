@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PomodoroTimerLogic;
 using PomodoroTimerLogic.ViewModels;
 
 namespace Tests
@@ -13,7 +13,10 @@ namespace Tests
             TaskToCompleteListViewModel viewModel = new TaskToCompleteListViewModel();
 
             Assert.IsNotNull(viewModel.TaskToCompleteList);
-            Assert.AreEqual(viewModel.NewTaskDescription, "A new task");
+
+            Assert.AreEqual(viewModel.NewTaskDescription, Constants.DefaultTaskDescription);
+
+            Assert.IsNotNull(viewModel.AddTaskCommand);
         }
 
         [TestMethod]

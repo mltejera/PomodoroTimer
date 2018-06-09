@@ -31,13 +31,13 @@
     <AppXManifest Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-09T23:13:10.082</Modified>
+      <Modified>2018-06-09T23:24:59.739</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\PomodoroTimer.exe">
       <PackagePath>entrypoint\PomodoroTimer.exe</PackagePath>
-      <Modified>2018-06-09T23:13:09.735</Modified>
+      <Modified>2018-06-09T23:24:59.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -497,7 +497,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimerLogic\bin\x86\Debug\PomodoroTimerLogic.dll">
       <PackagePath>PomodoroTimerLogic.dll</PackagePath>
-      <Modified>2018-06-09T23:12:22.795</Modified>
+      <Modified>2018-06-09T23:24:57.892</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -551,7 +551,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\Themes\Generic.xbf">
       <PackagePath>Themes\Generic.xbf</PackagePath>
-      <Modified>2018-06-09T23:13:09.634</Modified>
+      <Modified>2018-06-09T23:24:59.122</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -560,11 +560,11 @@
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-09T22:13:55.499</Modified>
+      <Modified>2018-06-09T23:24:59.601</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimer\bin\x86\Debug\Core\PomodoroTimer.exe">
       <PackagePath>PomodoroTimer.exe</PackagePath>
-      <Modified>2018-06-09T23:13:10.081</Modified>
+      <Modified>2018-06-09T23:24:59.737</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

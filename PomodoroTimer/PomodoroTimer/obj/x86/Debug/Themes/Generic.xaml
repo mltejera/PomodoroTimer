@@ -98,7 +98,6 @@
                                 Command="{Binding ToggleStartStopCommand}" />
             
             <AppBarButton Icon="Refresh"
-                          Grid.Row="1"
                           Grid.Column="2"
                           Command="{Binding ResetTimeCommand}"/>            
 

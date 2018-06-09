@@ -109,6 +109,7 @@
     <Compile Include="Models\TaskToComplete.cs" />
     <Compile Include="Models\TaskTimer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Constants.cs" />
     <Compile Include="ViewModels\Common\RelayCommand.cs" />
     <Compile Include="ViewModels\TaskTimer\TaskTimerListViewModel.cs" />
     <Compile Include="ViewModels\TaskToComplete\TaskToCompleteListViewModel.cs" />

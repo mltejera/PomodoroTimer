@@ -4,8 +4,6 @@ namespace PomodoroTimerLogic.ViewModels
 {
     public class TaskTimerListViewModel : ViewModelBase
     {
-        const string defaultTimerDescription = "Default Timer Description";
-
         public ObservableCollection<TaskTimerViewModel> TaskTimers { get; set; }
 
         public RelayCommand AddTimerCommand
@@ -32,7 +30,7 @@ namespace PomodoroTimerLogic.ViewModels
 
             this.AddTimerCommand = new RelayCommand(AddTaskTimer);
 
-            this.NewTimerDescription = defaultTimerDescription;
+            this.NewTimerDescription = Constants.DefaultTimerDescription;
 
 
             //TODO REMOVE DEBUG CODE
@@ -45,9 +43,9 @@ namespace PomodoroTimerLogic.ViewModels
         {
             if(this.TaskTimers != null && !string.IsNullOrWhiteSpace(this.newTimerDescription))
             {
-                this.TaskTimers.Add(new TaskTimerViewModel(15000, newTimerDescription));
+                this.TaskTimers.Add(new TaskTimerViewModel(Constants.DefaultStartingTimeInMiliseconds, newTimerDescription));
 
-                this.NewTimerDescription = defaultTimerDescription;
+                this.NewTimerDescription = Constants.DefaultTimerDescription;
             }
         }
 

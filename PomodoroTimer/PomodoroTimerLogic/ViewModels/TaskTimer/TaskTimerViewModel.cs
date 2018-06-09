@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PomodoroTimerLogic.Models;
+﻿using PomodoroTimerLogic.Models;
+using System;
 
 namespace PomodoroTimerLogic.ViewModels
 {
     public class TaskTimerViewModel : ViewModelBase
     {
-        const string defaultTimerDescription = "Default Timer Description";
-        const int aMinuteInMiliSeconds = 60000;
-
         private TaskTimer taskTimerModel;
 
         public TaskTimer TaskTimerModel
@@ -90,7 +83,7 @@ namespace PomodoroTimerLogic.ViewModels
             this.initCommands();
         }
 
-        public TaskTimerViewModel(int totalMiliseconds, string description = defaultTimerDescription)
+        public TaskTimerViewModel(int totalMiliseconds, string description = Constants.DefaultTimerDescription)
         {
             this.initTaskTimerModel(totalMiliseconds, description);
             this.initCommands();
@@ -104,7 +97,7 @@ namespace PomodoroTimerLogic.ViewModels
             this.ResetTimeCommand = new RelayCommand(this.ResetTimer);
         }
 
-        private void initTaskTimerModel(int totalMiliseconds = 0,string description = defaultTimerDescription)
+        private void initTaskTimerModel(int totalMiliseconds = 0,string description = Constants.DefaultTimerDescription)
         {
             taskTimerModel = new TaskTimer();
             taskTimerModel.IsComplete = false;
@@ -116,18 +109,18 @@ namespace PomodoroTimerLogic.ViewModels
 
         public void AddMinute()
         {
-            this.TaskTimerModel.RemainingMiliseconds += aMinuteInMiliSeconds;
-            this.TaskTimerModel.TotalMiliseconds += aMinuteInMiliSeconds;
+            this.TaskTimerModel.RemainingMiliseconds += Constants.AMinuteInMiliSeconds;
+            this.TaskTimerModel.TotalMiliseconds += Constants.AMinuteInMiliSeconds;
 
             OnPropertyChanged("TimeRemaining");
         }
 
         public void RemoveMinute()
         {
-            if(this.TaskTimerModel.RemainingMiliseconds > aMinuteInMiliSeconds && this.TaskTimerModel.TotalMiliseconds > aMinuteInMiliSeconds)
+            if(this.TaskTimerModel.RemainingMiliseconds > Constants.AMinuteInMiliSeconds && this.TaskTimerModel.TotalMiliseconds > Constants.AMinuteInMiliSeconds)
             {
-                this.TaskTimerModel.RemainingMiliseconds -= aMinuteInMiliSeconds;
-                this.TaskTimerModel.TotalMiliseconds -= aMinuteInMiliSeconds;
+                this.TaskTimerModel.RemainingMiliseconds -= Constants.AMinuteInMiliSeconds;
+                this.TaskTimerModel.TotalMiliseconds -= Constants.AMinuteInMiliSeconds;
             }
             else
             {

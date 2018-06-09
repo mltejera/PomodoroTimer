@@ -4,8 +4,6 @@ namespace PomodoroTimerLogic.ViewModels
 {
     public class TaskToCompleteListViewModel : ViewModelBase
     {
-        // TODO: Localize
-        const string defaultNewTaskDescription = "A new task";
 
         public ObservableCollection<TaskToCompleteViewModel> TaskToCompleteList { get; set; }
 
@@ -30,11 +28,10 @@ namespace PomodoroTimerLogic.ViewModels
         public TaskToCompleteListViewModel()
         {
             this.TaskToCompleteList = new ObservableCollection<TaskToCompleteViewModel>();
-            this.newTaskDescription = defaultNewTaskDescription;
+            this.newTaskDescription = Constants.DefaultTaskDescription;
 
             this.AddTaskCommand = new RelayCommand(AddTaskToComplete);
         }
-
 
         public void AddTaskToComplete()
         {
@@ -44,7 +41,7 @@ namespace PomodoroTimerLogic.ViewModels
             
                 TaskToCompleteList.Add(taskToComplete);
 
-                this.NewTaskDescription = defaultNewTaskDescription;
+                this.NewTaskDescription = Constants.DefaultTaskDescription;
             }      
         }
     }
