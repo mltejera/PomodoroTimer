@@ -28,10 +28,12 @@ namespace PomodoroTimerLogic.ViewModels
             this.AddTaskCommand = new RelayCommand(AddTaskToComplete);
 
             // TODO DELETE DEBUG CODE
+            // OR MAKE INTENTIONAL
             this.AddTaskToComplete();
             this.AddTaskToComplete();
             this.AddTaskToComplete();
             this.AddTaskToComplete();
+
         }
 
         private string newTaskDescription;
