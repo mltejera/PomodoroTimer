@@ -72,7 +72,7 @@
         <Grid HorizontalAlignment="Stretch"
               BorderBrush="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}"
               BorderThickness="1,1,1,1"
-              Padding="4,4,4,4"
+              Padding="12,12,4,12"
               Margin="8,4,8,4">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -93,8 +93,14 @@
             <AppBarToggleButton Icon="Play"
                                 Label="Start"
                                 HorizontalAlignment="Stretch"
-                                Grid.ColumnSpan="2"
-                                Grid.Column="1" />
+                                Grid.Column="1"
+                                IsChecked="{Binding IsRunning, Mode=OneWay}"
+                                Command="{Binding ToggleStartStopCommand}" />
+            
+            <AppBarButton Icon="Refresh"
+                          Grid.Row="1"
+                          Grid.Column="2"
+                          Command="{Binding ResetTimeCommand}"/>            
 
             <TextBlock Text="{Binding TimeRemaining, Mode=OneWay}"
                        FontSize="24"
@@ -102,12 +108,13 @@
 
             <AppBarButton Icon="Add"
                           Grid.Row="1"
-                          Grid.Column="1"/>
-
+                          Grid.Column="1"
+                          Command="{Binding AddMinuteCommand}"/>
 
             <AppBarButton Icon="Remove"
                           Grid.Row="1"
-                          Grid.Column="2"/>
+                          Grid.Column="2"
+                          Command="{Binding RemoveMinuteCommand}"/>
         </Grid>
     </DataTemplate>
 
@@ -131,7 +138,6 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
-
                             <ScrollViewer Grid.ColumnSpan="2"
                                           Grid.Row="1"
                                           HorizontalAlignment="Stretch"
@@ -141,16 +147,16 @@
                             </ScrollViewer>
 
                             <!--Todo Localize-->
-                            <!--<TextBox Grid.Row="2"
-                                     Header="Add a New Task"
-                                     Text="{Binding NewTaskDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Grid.Row="2"
+                                     Header="Add a New Timer"
+                                     Text="{Binding NewTimerDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <AppBarButton Grid.Row="2"
                                           Grid.Column="1"
                                           Margin="8,0,8,0"
                                           Label="Add"
                                           Icon="Add"
-                                          Command="{Binding AddTaskCommand, Mode=TwoWay}"/>-->
+                                          Command="{Binding AddTimerCommand, Mode=TwoWay}"/>
                         </Grid>
                     </Border>
                 </ControlTemplate>

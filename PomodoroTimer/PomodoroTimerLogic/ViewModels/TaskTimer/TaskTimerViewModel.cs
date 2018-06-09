@@ -9,7 +9,8 @@ namespace PomodoroTimerLogic.ViewModels
 {
     public class TaskTimerViewModel : ViewModelBase
     {
-        const string defaultTaskDescription = "Default Task Description";
+        const string defaultTimerDescription = "Default Timer Description";
+        const int aMinuteInMiliSeconds = 60000;
 
         private TaskTimer taskTimerModel;
 
@@ -34,34 +35,76 @@ namespace PomodoroTimerLogic.ViewModels
 
         public string TimeRemaining
         {
-            // TODO: Convert to this.taskTimerModel.RemainingMiliseconds;
-            get { return "12:30:50"; }
+            // TODO: Convert this to a human readable string
+            get { return this.ConvertMilisecondsToHumanTime(this.taskTimerModel.RemainingMiliseconds); }
+        }
+
+        public bool IsRunning
+        {
+            get
+            {
+                return this.TaskTimerModel.IsRunning;
+            }
             set
             {
-                tempString = value;
-                OnPropertyChanged("TimeRemaining");
-                //this.taskTimerModel.Description = value;
-                //OnPropertyChanged("TimerDescription");
+                this.TaskTimerModel.IsRunning = value;
+                OnPropertyChanged("IsRunning");
             }
+        }
+
+
+        public RelayCommand AddMinuteCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand RemoveMinuteCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand ToggleStartStopCommand
+        {
+            get;
+            private set;
+        }
+
+        public RelayCommand ResetTimeCommand
+        {
+            get;
+            private set;
         }
 
 
         public TaskTimerViewModel()
         {
             this.initTaskTimerModel();
+            this.initCommands();
         }
 
         public TaskTimerViewModel(int totalMiliseconds = 0)
         {
             this.initTaskTimerModel(totalMiliseconds);
+            this.initCommands();
         }
 
-        public TaskTimerViewModel(int totalMiliseconds, string description = defaultTaskDescription)
+        public TaskTimerViewModel(int totalMiliseconds, string description = defaultTimerDescription)
         {
             this.initTaskTimerModel(totalMiliseconds, description);
+            this.initCommands();
         }
 
-        private void initTaskTimerModel(int totalMiliseconds = 0,string description = defaultTaskDescription)
+        private void initCommands()
+        {
+            this.AddMinuteCommand = new RelayCommand(this.AddMinute);
+            this.RemoveMinuteCommand = new RelayCommand(this.RemoveMinute);
+            this.ToggleStartStopCommand = new RelayCommand(this.ToggleTimer);
+            this.ResetTimeCommand = new RelayCommand(this.ResetTimer);
+        }
+
+        private void initTaskTimerModel(int totalMiliseconds = 0,string description = defaultTimerDescription)
         {
             taskTimerModel = new TaskTimer();
             taskTimerModel.IsComplete = false;
@@ -71,24 +114,57 @@ namespace PomodoroTimerLogic.ViewModels
             taskTimerModel.Description = description;
         }
 
-        // Start
-        public void StartTimer()
+        public void AddMinute()
         {
+            this.TaskTimerModel.RemainingMiliseconds += aMinuteInMiliSeconds;
+            this.TaskTimerModel.TotalMiliseconds += aMinuteInMiliSeconds;
 
-        }
-        
-
-        // Stop
-        public void StopTimer()
-        {
-
+            OnPropertyChanged("TimeRemaining");
         }
 
-        // Add minute
+        public void RemoveMinute()
+        {
+            if(this.TaskTimerModel.RemainingMiliseconds > aMinuteInMiliSeconds && this.TaskTimerModel.TotalMiliseconds > aMinuteInMiliSeconds)
+            {
+                this.TaskTimerModel.RemainingMiliseconds -= aMinuteInMiliSeconds;
+                this.TaskTimerModel.TotalMiliseconds -= aMinuteInMiliSeconds;
+            }
+            else
+            {
+                this.TaskTimerModel.RemainingMiliseconds = 0;
+                this.TaskTimerModel.TotalMiliseconds = 0;
+            }
 
-        // Subtract minute
+            OnPropertyChanged("TimeRemaining");
+        }
 
-        // Alerting system?
+        public void ToggleTimer()
+        {
+            this.IsRunning = this.taskTimerModel.IsRunning;
+        }
+
+        public void ResetTimer()
+        {
+            this.IsRunning = false;
+            this.taskTimerModel.IsComplete = false;
+            this.taskTimerModel.RemainingMiliseconds = this.taskTimerModel.TotalMiliseconds;
+
+            OnPropertyChanged("TimeRemaining");
+        }
+
+        public string ConvertMilisecondsToHumanTime(int miliseconds)
+        {
+            TimeSpan t = TimeSpan.FromMilliseconds(miliseconds);
+            return string.Format("{0:D2}:{1:D2}:{2:D2}",
+                                    t.Hours,
+                                    t.Minutes,
+                                    t.Seconds,
+                                    t.Milliseconds);
+        }
+
+
+
+        // TODO ALERTING
 
     }
 }

@@ -1,8 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="AddTimerCommand" />
+    <RootPropertyPathName Name="NewTimerDescription" />
     <RootPropertyPathName Name="TaskTimers" />
+    <RootPropertyPathName Name="RemoveMinuteCommand" />
+    <RootPropertyPathName Name="AddMinuteCommand" />
     <RootPropertyPathName Name="TimeRemaining" />
+    <RootPropertyPathName Name="ResetTimeCommand" />
+    <RootPropertyPathName Name="IsRunning" />
+    <RootPropertyPathName Name="ToggleStartStopCommand" />
     <RootPropertyPathName Name="TimerDescription" />
     <RootPropertyPathName Name="AddTaskCommand" />
     <RootPropertyPathName Name="NewTaskDescription" />
@@ -74,13 +81,23 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
-      <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="ItemsSource" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Label" />
+      <RootProperty Name="Icon" />
+      <RootProperty Name="Command" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
       <RootProperty Name="UpdateSourceTrigger" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="ItemsSource" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -92,16 +109,8 @@
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />
       <RootProperty Name="HorizontalAlignment" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
-      <RootProperty Name="Icon" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Label" />
+      <RootProperty Name="IsChecked" />
       <RootProperty Name="Command" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Header" />
-      <RootProperty Name="Text" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="HorizontalAlignment" />

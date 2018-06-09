@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace PomodoroTimerLogic.ViewModels
 {
@@ -20,14 +15,6 @@ namespace PomodoroTimerLogic.ViewModels
             private set;
         }
 
-        public TaskToCompleteListViewModel()
-        {
-            this.TaskToCompleteList = new ObservableCollection<TaskToCompleteViewModel>();
-            this.newTaskDescription = defaultNewTaskDescription;
-
-            this.AddTaskCommand = new RelayCommand(AddTaskToComplete);
-        }
-
         private string newTaskDescription;
 
         public string NewTaskDescription
@@ -40,11 +27,20 @@ namespace PomodoroTimerLogic.ViewModels
             }
         }
 
+        public TaskToCompleteListViewModel()
+        {
+            this.TaskToCompleteList = new ObservableCollection<TaskToCompleteViewModel>();
+            this.newTaskDescription = defaultNewTaskDescription;
+
+            this.AddTaskCommand = new RelayCommand(AddTaskToComplete);
+        }
+
+
         public void AddTaskToComplete()
         {
-            if(this.TaskToCompleteList != null && !string.IsNullOrWhiteSpace(this.NewTaskDescription))
+            if(this.TaskToCompleteList != null && !string.IsNullOrWhiteSpace(this.newTaskDescription))
             { 
-                TaskToCompleteViewModel taskToComplete = new TaskToCompleteViewModel(this.NewTaskDescription);
+                TaskToCompleteViewModel taskToComplete = new TaskToCompleteViewModel(this.newTaskDescription);
             
                 TaskToCompleteList.Add(taskToComplete);
 
