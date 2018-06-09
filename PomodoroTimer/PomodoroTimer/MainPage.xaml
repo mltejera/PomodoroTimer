@@ -7,10 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:controls="using:PomodoroTimer"
-    xmlns:viewModels="using:PomodoroTimerLogic.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel VerticalAlignment="Center">
-        <controls:TaskList />
+        <!--<controls:TaskList />-->
+        <controls:TaskTimerList />
     </StackPanel>
 </Page>

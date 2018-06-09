@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace PomodoroTimerLogic.Models
 {
-    class Timer
+    public class TaskTimer
     {
+        public string Description { get; set; }
+
         public int TotalMiliseconds { get; set; }
 
         public int RemainingMiliseconds { get; set; }

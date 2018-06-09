@@ -5,13 +5,12 @@
     xmlns:viewModels="using:PomodoroTimerLogic.ViewModels"
     xmlns:local2="using:PomodoroTimer">
 
-    <x:Double x:Key="ColumnWidth">420</x:Double>
-    <x:Double x:Key="ColumnHeight">420</x:Double>
+    <x:Double x:Key="ControlDimension">420</x:Double>
 
     <DataTemplate x:Key="TaskToCompleteTemplate">
         <Grid HorizontalAlignment="Stretch">
             <CheckBox HorizontalAlignment="Stretch"
-                      Content="{Binding TaskDescription, Mode=OneWay}"
+                      Content="{Binding TaskDescription, Mode=OneTime}"
                       IsChecked="{Binding IsComplete, Mode=TwoWay}"/>
         </Grid>
     </DataTemplate>
@@ -20,8 +19,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local2:TaskList">
-                    <Border Width="{StaticResource ColumnWidth}"
-                            Height="{StaticResource ColumnHeight}"
+                    <Border Width="{StaticResource ControlDimension}"
+                            Height="{StaticResource ControlDimension}"
                             BorderBrush="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -69,4 +68,93 @@
         </Setter>
     </Style>
 
+    <DataTemplate x:Key="TaskTimerTemplate">
+        <Grid HorizontalAlignment="Stretch"
+              BorderBrush="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}"
+              BorderThickness="1,1,1,1"
+              Padding="4,4,4,4"
+              Margin="8,4,8,4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{Binding TimerDescription, Mode=OneTime}"
+                       VerticalAlignment="Center"
+                       FontSize="18"/>
+
+            <AppBarToggleButton Icon="Play"
+                                Label="Start"
+                                HorizontalAlignment="Stretch"
+                                Grid.ColumnSpan="2"
+                                Grid.Column="1" />
+
+            <TextBlock Text="{Binding TimeRemaining, Mode=OneWay}"
+                       FontSize="24"
+                       Grid.Row="1" />
+
+            <AppBarButton Icon="Add"
+                          Grid.Row="1"
+                          Grid.Column="1"/>
+
+
+            <AppBarButton Icon="Remove"
+                          Grid.Row="1"
+                          Grid.Column="2"/>
+        </Grid>
+    </DataTemplate>
+
+    <Style TargetType="local2:TaskTimerList" xmlns:local2="using:PomodoroTimer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local2:TaskTimerList">
+
+                    <Border Width="{StaticResource ControlDimension}"
+                            Height="{StaticResource ControlDimension}"
+                            BorderBrush="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <ScrollViewer Grid.ColumnSpan="2"
+                                          Grid.Row="1"
+                                          HorizontalAlignment="Stretch"
+                                          Margin="0,8,0,8">
+                                <ItemsControl ItemTemplate="{StaticResource TaskTimerTemplate}"
+                                              ItemsSource="{Binding TaskTimers}"/>
+                            </ScrollViewer>
+
+                            <!--Todo Localize-->
+                            <!--<TextBox Grid.Row="2"
+                                     Header="Add a New Task"
+                                     Text="{Binding NewTaskDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <AppBarButton Grid.Row="2"
+                                          Grid.Column="1"
+                                          Margin="8,0,8,0"
+                                          Label="Add"
+                                          Icon="Add"
+                                          Command="{Binding AddTaskCommand, Mode=TwoWay}"/>-->
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
