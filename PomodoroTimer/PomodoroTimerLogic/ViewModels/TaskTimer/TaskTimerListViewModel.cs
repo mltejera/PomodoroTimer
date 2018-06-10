@@ -53,7 +53,7 @@ namespace PomodoroTimerLogic.ViewModels
 
         public void PopulateWithDefaults()
         {
-            this.AddTaskTimer("Review Spec", Constants.TwentyFiveMinutesInMiliSeconds);
+            this.AddTaskTimer("Review Spec", Constants.TenSecondsInMiliseconds);
             this.AddTaskTimer("Get Coffee", Constants.FiveMinutesInMiliSeconds);
             this.AddTaskTimer("Write Tests", Constants.TwentyFiveMinutesInMiliSeconds);
             this.AddTaskTimer("Get Snack", Constants.FiveMinutesInMiliSeconds);

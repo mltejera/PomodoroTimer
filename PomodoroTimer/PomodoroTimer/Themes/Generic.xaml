@@ -110,11 +110,13 @@
             <AppBarButton Icon="Add"
                           Grid.Row="1"
                           Grid.Column="1"
+                          IsEnabled="{Binding IsRunning}"
                           Command="{Binding AddMinuteCommand}"/>
 
             <AppBarButton Icon="Remove"
                           Grid.Row="1"
                           Grid.Column="2"
+                          IsEnabled="{Binding IsRunning}"
                           Command="{Binding RemoveMinuteCommand}"/>
         </Grid>
     </DataTemplate>

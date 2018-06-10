@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
 
 //////////////////////////////////////
 //NOTE: BOILER PLATE FROM MSDN
