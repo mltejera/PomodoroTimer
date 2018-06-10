@@ -18,8 +18,8 @@ namespace Tests
             Assert.AreEqual(viewModel.TimerDescription, Constants.DefaultTimerDescription);
             Assert.AreEqual(viewModel.TaskTimerModel.IsComplete, false);
             Assert.AreEqual(viewModel.TaskTimerModel.IsRunning, false);
-            Assert.AreEqual(viewModel.TaskTimerModel.TotalMiliseconds, 0);
-            Assert.AreEqual(viewModel.TaskTimerModel.RemainingMiliseconds, 0);
+            Assert.AreEqual(viewModel.TaskTimerModel.TotalMiliseconds, Constants.DefaultStartingTimeInMiliseconds);
+            Assert.AreEqual(viewModel.TaskTimerModel.RemainingMiliseconds, Constants.DefaultStartingTimeInMiliseconds);
 
             Assert.IsNotNull(viewModel.AddMinuteCommand);
             Assert.IsNotNull(viewModel.RemoveMinuteCommand);
@@ -136,9 +136,7 @@ namespace Tests
         {
             TaskTimerViewModel timerVM = new TaskTimerViewModel();
 
-            // Remove 2 minutes
-            timerVM.RemoveMinute();
-            timerVM.RemoveMinute();
+            timerVM.TaskTimerModel.RemainingMiliseconds -= 50;
 
             timerVM.ResetTimer();
 

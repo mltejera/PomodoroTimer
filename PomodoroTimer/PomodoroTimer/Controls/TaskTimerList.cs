@@ -13,6 +13,8 @@ namespace PomodoroTimer
         {
             this.DefaultStyleKey = typeof(TaskTimerList);
             this.DataContext = viewModel;
+
+            viewModel.PopulateWithDefaults();
         }
     }
 }

@@ -33,7 +33,7 @@ namespace PomodoroTimerLogic.ViewModels
         public TaskToCompleteViewModel()
         {
             this.TaskModel = new TaskToComplete();
-            this.TaskModel.TaskDescription = "New Task";
+            this.TaskModel.TaskDescription = Constants.DefaultTaskDescription;
             this.TaskModel.IsComplete = false;
         }
 

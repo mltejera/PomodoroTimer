@@ -77,7 +77,7 @@ namespace PomodoroTimerLogic.ViewModels
             this.initCommands();
         }
 
-        public TaskTimerViewModel(int totalMiliseconds = 0)
+        public TaskTimerViewModel(int totalMiliseconds = Constants.DefaultStartingTimeInMiliseconds)
         {
             this.initTaskTimerModel(totalMiliseconds);
             this.initCommands();
@@ -97,7 +97,7 @@ namespace PomodoroTimerLogic.ViewModels
             this.ResetTimeCommand = new RelayCommand(this.ResetTimer);
         }
 
-        private void initTaskTimerModel(int totalMiliseconds = 0,string description = Constants.DefaultTimerDescription)
+        private void initTaskTimerModel(int totalMiliseconds = Constants.DefaultStartingTimeInMiliseconds, string description = Constants.DefaultTimerDescription)
         {
             taskTimerModel = new TaskTimer();
             taskTimerModel.IsComplete = false;

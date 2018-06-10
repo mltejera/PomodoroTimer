@@ -31,12 +31,6 @@ namespace PomodoroTimerLogic.ViewModels
             this.AddTimerCommand = new RelayCommand(AddTaskTimer);
 
             this.NewTimerDescription = Constants.DefaultTimerDescription;
-
-
-            //TODO REMOVE DEBUG CODE
-            this.AddTaskTimer();
-            this.AddTaskTimer();
-            this.AddTaskTimer();
         }
 
         public void AddTaskTimer()
@@ -47,6 +41,26 @@ namespace PomodoroTimerLogic.ViewModels
 
                 this.NewTimerDescription = Constants.DefaultTimerDescription;
             }
+        }
+
+        public void AddTaskTimer(string description, int miliseconds)
+        {
+            if (this.TaskTimers != null && !string.IsNullOrWhiteSpace(description) && miliseconds > 0)
+            {
+                this.TaskTimers.Add(new TaskTimerViewModel(miliseconds, description));
+            }
+        }
+
+        public void PopulateWithDefaults()
+        {
+            this.AddTaskTimer("Review Spec", Constants.TwentyFiveMinutesInMiliSeconds);
+            this.AddTaskTimer("Get Coffee", Constants.FiveMinutesInMiliSeconds);
+            this.AddTaskTimer("Write Tests", Constants.TwentyFiveMinutesInMiliSeconds);
+            this.AddTaskTimer("Get Snack", Constants.FiveMinutesInMiliSeconds);
+            this.AddTaskTimer("Write Code", Constants.TwentyFiveMinutesInMiliSeconds);
+            this.AddTaskTimer("Bio Break", Constants.FiveMinutesInMiliSeconds);
+            this.AddTaskTimer("Fix Bugs", Constants.TwentyFiveMinutesInMiliSeconds);
+            this.AddTaskTimer("Go To Lunch", Constants.ThirtyMinutesInMiliSeconds);
         }
 
     }

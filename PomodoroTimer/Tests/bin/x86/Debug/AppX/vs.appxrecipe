@@ -31,21 +31,21 @@
     <AppXManifest Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\Tests\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-09T22:12:48.508</Modified>
+      <Modified>2018-06-10T00:33:53.095</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\Tests\bin\x86\Debug\Tests.exe">
       <PackagePath>entrypoint\Tests.exe</PackagePath>
-      <Modified>2018-06-09T22:12:47.792</Modified>
+      <Modified>2018-06-10T00:33:52.734</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\Tests\bin\x86\Debug\Tests.pdb">
       <PackagePath>Tests.pdb</PackagePath>
-      <Modified>2018-06-09T22:12:47.793</Modified>
+      <Modified>2018-06-10T00:33:52.734</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimerLogic\bin\x86\Debug\PomodoroTimerLogic.pdb">
       <PackagePath>PomodoroTimerLogic.pdb</PackagePath>
-      <Modified>2018-06-09T22:12:46.238</Modified>
+      <Modified>2018-06-10T00:30:38.207</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\15.5\References\CommonConfiguration\neutral\testhost.dll">
       <PackagePath>testhost.dll</PackagePath>
@@ -533,7 +533,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\PomodoroTimerLogic\bin\x86\Debug\PomodoroTimerLogic.dll">
       <PackagePath>PomodoroTimerLogic.dll</PackagePath>
-      <Modified>2018-06-09T22:12:46.238</Modified>
+      <Modified>2018-06-10T00:30:38.207</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\15.5\Redist\CommonConfiguration\neutral\Microsoft.TestPlatform.CommunicationUtilities.dll">
       <PackagePath>Microsoft.TestPlatform.CommunicationUtilities.dll</PackagePath>
@@ -632,11 +632,11 @@
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\Tests\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-06-09T22:12:48.290</Modified>
+      <Modified>2018-06-10T00:23:58.377</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\GitHubSource\PomodoroTimer\PomodoroTimer\PomodoroTimer\Tests\bin\x86\Debug\Core\Tests.exe">
       <PackagePath>Tests.exe</PackagePath>
-      <Modified>2018-06-09T22:12:48.506</Modified>
+      <Modified>2018-06-10T00:33:53.093</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

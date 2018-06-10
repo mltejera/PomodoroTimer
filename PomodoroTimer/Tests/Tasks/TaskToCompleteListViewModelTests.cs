@@ -41,7 +41,7 @@ namespace Tests
 
             Assert.AreEqual(viewModel.TaskToCompleteList.Count, 1);
             Assert.AreEqual(viewModel.TaskToCompleteList[0].TaskDescription, newTaskDescription);
-            Assert.AreEqual(viewModel.NewTaskDescription, "A new task");
+            Assert.AreEqual(viewModel.NewTaskDescription, Constants.DefaultTaskDescription);
         }
 
         [TestMethod]
