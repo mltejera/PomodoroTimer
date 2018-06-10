@@ -23,12 +23,8 @@ namespace PomodoroTimerLogic.ViewModels
             }
         }
 
-        //TODO Remove when converting to use real time
-        private string tempString { get; set; }
-
         public string TimeRemaining
         {
-            // TODO: Convert this to a human readable string
             get { return this.ConvertMilisecondsToHumanTime(this.taskTimerModel.RemainingMiliseconds); }
         }
 

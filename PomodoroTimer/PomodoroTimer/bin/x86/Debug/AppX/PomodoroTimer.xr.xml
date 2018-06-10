@@ -70,8 +70,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Children" />
     </RootType>
-    <RootType FullName="PomodoroTimer.TaskList" />
     <RootType FullName="PomodoroTimer.TaskTimerList" />
+    <RootType FullName="PomodoroTimer.TaskList" />
     <RootType FullName="PomodoroTimer.MainPage" />
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
     <RootType FullName="Windows.UI.Xaml.DataTemplate">

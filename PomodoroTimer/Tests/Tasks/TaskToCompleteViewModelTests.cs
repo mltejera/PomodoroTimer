@@ -1,9 +1,6 @@
-﻿
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PomodoroTimerLogic.ViewModels;
-
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PomodoroTimerLogic;
+using PomodoroTimerLogic.ViewModels;
 
 namespace Tests
 {
