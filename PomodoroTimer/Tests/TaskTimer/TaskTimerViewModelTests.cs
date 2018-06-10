@@ -142,5 +142,15 @@ namespace Tests
             Assert.AreEqual(timerVM.TaskTimerModel.RemainingMiliseconds, Constants.DefaultStartingTimeInMiliseconds);
             Assert.AreEqual(timerVM.TaskTimerModel.TotalMiliseconds, Constants.DefaultStartingTimeInMiliseconds);
         }
+
+        [TestMethod]
+        public void TestTaskTimerViewModelConvertMilisecondsToHumanTime()
+        {
+            TaskTimerViewModel timerVM = new TaskTimerViewModel();
+
+            string fiveMinutes = timerVM.ConvertMilisecondsToHumanTime(Constants.FiveMinutesInMiliSeconds);
+
+            Assert.AreEqual(fiveMinutes, "00:05:00");
+        }
     }
 }
