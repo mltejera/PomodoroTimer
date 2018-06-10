@@ -97,6 +97,10 @@
     </Compile>
     <Compile Include="Controls\TaskList.cs" />
     <Compile Include="Controls\TaskTimerList.cs" />
+    <Compile Include="Converters\BoolToStartStopConverter.cs" />
+    <Compile Include="Converters\BoolToStartStopSymbolIconConverter.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\InverseBoolConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

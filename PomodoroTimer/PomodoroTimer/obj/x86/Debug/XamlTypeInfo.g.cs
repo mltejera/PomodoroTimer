@@ -132,21 +132,31 @@ namespace PomodoroTimer.PomodoroTimer_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
+            _typeNameTable = new string[11];
             _typeNameTable[0] = "PomodoroTimer.TaskTimerList";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Control";
             _typeNameTable[2] = "PomodoroTimer.TaskList";
             _typeNameTable[3] = "PomodoroTimer.MainPage";
             _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[6] = "PomodoroTimer.Converters.InverseBoolConverter";
+            _typeNameTable[7] = "Object";
+            _typeNameTable[8] = "PomodoroTimer.Converters.BoolToVisibilityConverter";
+            _typeNameTable[9] = "PomodoroTimer.Converters.BoolToStartStopConverter";
+            _typeNameTable[10] = "PomodoroTimer.Converters.BoolToStartStopSymbolIconConverter";
 
-            _typeTable = new global::System.Type[6];
+            _typeTable = new global::System.Type[11];
             _typeTable[0] = typeof(global::PomodoroTimer.TaskTimerList);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Control);
             _typeTable[2] = typeof(global::PomodoroTimer.TaskList);
             _typeTable[3] = typeof(global::PomodoroTimer.MainPage);
             _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[6] = typeof(global::PomodoroTimer.Converters.InverseBoolConverter);
+            _typeTable[7] = typeof(global::System.Object);
+            _typeTable[8] = typeof(global::PomodoroTimer.Converters.BoolToVisibilityConverter);
+            _typeTable[9] = typeof(global::PomodoroTimer.Converters.BoolToStartStopConverter);
+            _typeTable[10] = typeof(global::PomodoroTimer.Converters.BoolToStartStopSymbolIconConverter);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -184,6 +194,10 @@ namespace PomodoroTimer.PomodoroTimer_XamlTypeInfo
         private object Activate_0_TaskTimerList() { return new global::PomodoroTimer.TaskTimerList(); }
         private object Activate_2_TaskList() { return new global::PomodoroTimer.TaskList(); }
         private object Activate_3_MainPage() { return new global::PomodoroTimer.MainPage(); }
+        private object Activate_6_InverseBoolConverter() { return new global::PomodoroTimer.Converters.InverseBoolConverter(); }
+        private object Activate_8_BoolToVisibilityConverter() { return new global::PomodoroTimer.Converters.BoolToVisibilityConverter(); }
+        private object Activate_9_BoolToStartStopConverter() { return new global::PomodoroTimer.Converters.BoolToStartStopConverter(); }
+        private object Activate_10_BoolToStartStopSymbolIconConverter() { return new global::PomodoroTimer.Converters.BoolToStartStopSymbolIconConverter(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -226,6 +240,38 @@ namespace PomodoroTimer.PomodoroTimer_XamlTypeInfo
 
             case 5:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  PomodoroTimer.Converters.InverseBoolConverter
+                userType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_6_InverseBoolConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  Object
+                xamlType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  PomodoroTimer.Converters.BoolToVisibilityConverter
+                userType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_8_BoolToVisibilityConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  PomodoroTimer.Converters.BoolToStartStopConverter
+                userType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_9_BoolToStartStopConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  PomodoroTimer.Converters.BoolToStartStopSymbolIconConverter
+                userType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_10_BoolToStartStopSymbolIconConverter;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;

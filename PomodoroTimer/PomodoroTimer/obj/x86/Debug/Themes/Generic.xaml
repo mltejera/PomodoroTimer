@@ -3,9 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     
     xmlns:viewModels="using:PomodoroTimerLogic.ViewModels"
+    xmlns:converters="using:PomodoroTimer.Converters"
     xmlns:local2="using:PomodoroTimer">
 
     <x:Double x:Key="ControlDimension">420</x:Double>
+    
 
     <DataTemplate x:Key="TaskToCompleteTemplate">
         <Grid HorizontalAlignment="Stretch">
@@ -71,11 +73,20 @@
     </Style>
 
     <DataTemplate x:Key="TaskTimerTemplate">
-        <Grid HorizontalAlignment="Stretch"
+        <Grid x:Name="ParentGrid"
+              HorizontalAlignment="Stretch"
               BorderBrush="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}"
               BorderThickness="1,1,1,1"
               Padding="12,12,4,12"
               Margin="8,4,8,4">
+
+            <Grid.Resources>
+                <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+                <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+                <converters:BoolToStartStopConverter x:Key="BoolToStartStopConverter"/>
+                <converters:BoolToStartStopSymbolIconConverter x:Key="BoolToStartStopSymbolIconConverter"/>
+            </Grid.Resources>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -85,23 +96,29 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
-
             </Grid.ColumnDefinitions>
+
+
+            <Rectangle Grid.RowSpan="2"
+                       Grid.ColumnSpan="3"
+                       Margin="-12,-12,-4,-12"
+                       Visibility="{Binding IsComplete, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                       Fill="Red" />
 
             <TextBlock Text="{Binding TimerDescription, Mode=OneTime}"
                        VerticalAlignment="Center"
                        FontSize="18"/>
 
-            <AppBarToggleButton Icon="Play"
-                                Label="Start"
-                                HorizontalAlignment="Stretch"
+            <AppBarToggleButton Icon="{Binding IsRunning, Mode=OneWay, Converter={StaticResource BoolToStartStopSymbolIconConverter}}"
+                                Label="{Binding IsRunning, Mode=OneWay, Converter={StaticResource BoolToStartStopConverter}}"
+                                IsEnabled="{Binding IsComplete, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"
                                 Grid.Column="1"
-                                IsChecked="{Binding IsRunning, Mode=OneWay}"
-                                Command="{Binding ToggleStartStopCommand}" />
+                                IsChecked="{Binding IsRunning, Mode=TwoWay}" />
             
             <AppBarButton Icon="Refresh"
                           Grid.Column="2"
-                          Command="{Binding ResetTimeCommand}"/>            
+                          Command="{Binding ResetTimeCommand}"
+                          IsEnabled="{Binding IsRunning, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"/>            
 
             <TextBlock Text="{Binding TimeRemaining, Mode=OneWay}"
                        FontSize="24"
@@ -110,12 +127,15 @@
             <AppBarButton Icon="Add"
                           Grid.Row="1"
                           Grid.Column="1"
+                          IsEnabled="{Binding IsRunning, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"
                           Command="{Binding AddMinuteCommand}"/>
 
             <AppBarButton Icon="Remove"
                           Grid.Row="1"
                           Grid.Column="2"
+                          IsEnabled="{Binding IsRunning, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"
                           Command="{Binding RemoveMinuteCommand}"/>
+
         </Grid>
     </DataTemplate>
 

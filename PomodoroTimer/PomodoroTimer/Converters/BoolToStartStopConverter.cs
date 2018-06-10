@@ -3,13 +3,20 @@ using Windows.UI.Xaml.Data;
 
 namespace PomodoroTimer.Converters
 {
-    class InverseBoolConverter : IValueConverter
+    class BoolToStartStopConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             bool valAsBool = (bool)value;
 
-            return !valAsBool;
+            if (valAsBool)
+            {
+                return "Stop";
+            }
+            else
+            {
+                return "Play";
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

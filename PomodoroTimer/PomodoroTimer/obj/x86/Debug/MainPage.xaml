@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="PomodoroTimer.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:PomodoroTimer"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <x:Double x:Key="WideMinWidth">860</x:Double>
+    </Page.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='1' x:Name="AdaptiveVisualStates">
+                <VisualState x:ConnectionId='2' x:Name="Narrow"/>
+                <VisualState x:ConnectionId='3' x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ChildPanel.Orientation" Value="Horizontal"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ScrollViewer HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+            <StackPanel x:ConnectionId='4' x:Name="ChildPanel">
+                <controls:TaskTimerList />
+                <controls:TaskList />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</Page>
+

@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
+  <Roots.Interfaces>
+    <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
+  </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="AddTimerCommand" />
     <RootPropertyPathName Name="NewTimerDescription" />
     <RootPropertyPathName Name="TaskTimers" />
+    <RootPropertyPathName Name="IsRunning" />
     <RootPropertyPathName Name="RemoveMinuteCommand" />
     <RootPropertyPathName Name="AddMinuteCommand" />
     <RootPropertyPathName Name="TimeRemaining" />
     <RootPropertyPathName Name="ResetTimeCommand" />
-    <RootPropertyPathName Name="IsRunning" />
-    <RootPropertyPathName Name="ToggleStartStopCommand" />
+    <RootPropertyPathName Name="IsComplete" />
     <RootPropertyPathName Name="TimerDescription" />
     <RootPropertyPathName Name="AddTaskCommand" />
     <RootPropertyPathName Name="NewTaskDescription" />
     <RootPropertyPathName Name="TaskToCompleteList" />
     <RootPropertyPathName Name="TaskDescription" />
-    <RootPropertyPathName Name="IsComplete" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -35,12 +37,15 @@
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Resources" />
       <RootMethod Name="GetColumnSpan" />
       <RootMethod Name="SetColumnSpan" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
+      <RootMethod Name="GetRowSpan" />
+      <RootMethod Name="SetRowSpan" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
@@ -107,14 +112,25 @@
       <RootProperty Name="Label" />
       <RootProperty Name="Icon" />
       <RootProperty Name="Command" />
+      <RootProperty Name="IsEnabled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
       <RootProperty Name="UpdateSourceTrigger" />
+      <RootProperty Name="Converter" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="ItemsSource" />
+    </RootType>
+    <RootType FullName="PomodoroTimer.Converters.InverseBoolConverter" />
+    <RootType FullName="PomodoroTimer.Converters.BoolToVisibilityConverter" />
+    <RootType FullName="PomodoroTimer.Converters.BoolToStartStopConverter" />
+    <RootType FullName="PomodoroTimer.Converters.BoolToStartStopSymbolIconConverter" />
+    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Fill" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -125,9 +141,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarToggleButton">
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />
-      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="IsEnabled" />
       <RootProperty Name="IsChecked" />
-      <RootProperty Name="Command" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="HorizontalAlignment" />
