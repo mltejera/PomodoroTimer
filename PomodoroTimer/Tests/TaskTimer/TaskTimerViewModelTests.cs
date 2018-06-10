@@ -14,11 +14,17 @@ namespace Tests
             TaskTimerViewModel viewModel = new TaskTimerViewModel();
 
             Assert.IsNotNull(viewModel.TaskTimerModel);
+
             Assert.AreEqual(viewModel.TimerDescription, Constants.DefaultTimerDescription);
             Assert.AreEqual(viewModel.TaskTimerModel.IsComplete, false);
             Assert.AreEqual(viewModel.TaskTimerModel.IsRunning, false);
             Assert.AreEqual(viewModel.TaskTimerModel.TotalMiliseconds, 0);
             Assert.AreEqual(viewModel.TaskTimerModel.RemainingMiliseconds, 0);
+
+            Assert.IsNotNull(viewModel.AddMinuteCommand);
+            Assert.IsNotNull(viewModel.RemoveMinuteCommand);
+            Assert.IsNotNull(viewModel.ToggleStartStopCommand);
+            Assert.IsNotNull(viewModel.ResetTimeCommand);
         }
 
         [TestMethod]
@@ -29,11 +35,17 @@ namespace Tests
             TaskTimerViewModel viewModel = new TaskTimerViewModel(totalMiliseconds);
 
             Assert.IsNotNull(viewModel.TaskTimerModel);
+
             Assert.AreEqual(viewModel.TaskTimerModel.IsComplete, false);
             Assert.AreEqual(viewModel.TaskTimerModel.IsRunning, false);
             Assert.AreEqual(viewModel.TaskTimerModel.TotalMiliseconds, totalMiliseconds);
             Assert.AreEqual(viewModel.TaskTimerModel.RemainingMiliseconds, totalMiliseconds);
             Assert.AreEqual(viewModel.TimerDescription, Constants.DefaultTimerDescription);
+
+            Assert.IsNotNull(viewModel.AddMinuteCommand);
+            Assert.IsNotNull(viewModel.RemoveMinuteCommand);
+            Assert.IsNotNull(viewModel.ToggleStartStopCommand);
+            Assert.IsNotNull(viewModel.ResetTimeCommand);
         }
 
         [TestMethod]
@@ -44,11 +56,18 @@ namespace Tests
             TaskTimerViewModel viewModel = new TaskTimerViewModel(totalMiliseconds);
 
             Assert.IsNotNull(viewModel.TaskTimerModel);
+
             Assert.AreEqual(viewModel.TaskTimerModel.IsComplete, false);
             Assert.AreEqual(viewModel.TaskTimerModel.IsRunning, false);
             Assert.AreEqual(viewModel.TaskTimerModel.TotalMiliseconds, totalMiliseconds);
             Assert.AreEqual(viewModel.TaskTimerModel.RemainingMiliseconds, totalMiliseconds);
             Assert.AreEqual(viewModel.TimerDescription, Constants.DefaultTimerDescription);
+
+            Assert.IsNotNull(viewModel.AddMinuteCommand);
+            Assert.IsNotNull(viewModel.RemoveMinuteCommand);
+            Assert.IsNotNull(viewModel.ToggleStartStopCommand);
+            Assert.IsNotNull(viewModel.ResetTimeCommand);
+
         }
 
         [TestMethod]
@@ -60,11 +79,17 @@ namespace Tests
             TaskTimerViewModel viewModel = new TaskTimerViewModel(totalMiliseconds, newTaskDescription);
 
             Assert.IsNotNull(viewModel.TaskTimerModel);
+
             Assert.AreEqual(viewModel.TaskTimerModel.IsComplete, false);
             Assert.AreEqual(viewModel.TaskTimerModel.IsRunning, false);
             Assert.AreEqual(viewModel.TaskTimerModel.TotalMiliseconds, totalMiliseconds);
             Assert.AreEqual(viewModel.TaskTimerModel.RemainingMiliseconds, totalMiliseconds);
             Assert.AreEqual(viewModel.TaskTimerModel.Description, newTaskDescription);
+
+            Assert.IsNotNull(viewModel.AddMinuteCommand);
+            Assert.IsNotNull(viewModel.RemoveMinuteCommand);
+            Assert.IsNotNull(viewModel.ToggleStartStopCommand);
+            Assert.IsNotNull(viewModel.ResetTimeCommand);
         }
 
         [TestMethod]
@@ -101,10 +126,6 @@ namespace Tests
             timerVM.RemoveMinute();
             timerVM.RemoveMinute();
             timerVM.RemoveMinute();
-            timerVM.RemoveMinute();
-            timerVM.RemoveMinute();
-            timerVM.RemoveMinute();
-            timerVM.RemoveMinute();
 
             Assert.AreEqual(timerVM.TaskTimerModel.RemainingMiliseconds, 0);
             Assert.AreEqual(timerVM.TaskTimerModel.TotalMiliseconds, 0);
@@ -124,8 +145,5 @@ namespace Tests
             Assert.AreEqual(timerVM.TaskTimerModel.RemainingMiliseconds, Constants.DefaultStartingTimeInMiliseconds);
             Assert.AreEqual(timerVM.TaskTimerModel.TotalMiliseconds, Constants.DefaultStartingTimeInMiliseconds);
         }
-
-
-
     }
 }

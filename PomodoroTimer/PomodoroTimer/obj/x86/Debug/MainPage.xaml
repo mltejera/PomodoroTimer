@@ -9,9 +9,33 @@
     xmlns:controls="using:PomodoroTimer"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel VerticalAlignment="Center">
-        <!--<controls:TaskList />-->
-        <controls:TaskTimerList />
-    </StackPanel>
+    <Page.Resources>
+        <x:Double x:Key="WideMinWidth">860</x:Double>
+    </Page.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='1' x:Name="AdaptiveVisualStates">
+                <VisualState x:ConnectionId='2' x:Name="Narrow"/>
+                <VisualState x:ConnectionId='3' x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ChildPanel.Orientation" Value="Horizontal"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ScrollViewer HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+            <StackPanel x:ConnectionId='4' x:Name="ChildPanel">
+                <controls:TaskList />
+                <controls:TaskTimerList />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
 </Page>
 

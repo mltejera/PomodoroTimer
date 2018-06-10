@@ -133,20 +133,20 @@ namespace PomodoroTimer.PomodoroTimer_XamlTypeInfo
         private void InitTypeTables()
         {
             _typeNameTable = new string[6];
-            _typeNameTable[0] = "PomodoroTimer.TaskTimerList";
+            _typeNameTable[0] = "PomodoroTimer.TaskList";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Control";
-            _typeNameTable[2] = "PomodoroTimer.MainPage";
-            _typeNameTable[3] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[5] = "PomodoroTimer.TaskList";
+            _typeNameTable[2] = "PomodoroTimer.TaskTimerList";
+            _typeNameTable[3] = "PomodoroTimer.MainPage";
+            _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
 
             _typeTable = new global::System.Type[6];
-            _typeTable[0] = typeof(global::PomodoroTimer.TaskTimerList);
+            _typeTable[0] = typeof(global::PomodoroTimer.TaskList);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Control);
-            _typeTable[2] = typeof(global::PomodoroTimer.MainPage);
-            _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[5] = typeof(global::PomodoroTimer.TaskList);
+            _typeTable[2] = typeof(global::PomodoroTimer.TaskTimerList);
+            _typeTable[3] = typeof(global::PomodoroTimer.MainPage);
+            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -181,9 +181,9 @@ namespace PomodoroTimer.PomodoroTimer_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_TaskTimerList() { return new global::PomodoroTimer.TaskTimerList(); }
-        private object Activate_2_MainPage() { return new global::PomodoroTimer.MainPage(); }
-        private object Activate_5_TaskList() { return new global::PomodoroTimer.TaskList(); }
+        private object Activate_0_TaskList() { return new global::PomodoroTimer.TaskList(); }
+        private object Activate_2_TaskTimerList() { return new global::PomodoroTimer.TaskTimerList(); }
+        private object Activate_3_MainPage() { return new global::PomodoroTimer.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -195,9 +195,9 @@ namespace PomodoroTimer.PomodoroTimer_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  PomodoroTimer.TaskTimerList
+            case 0:   //  PomodoroTimer.TaskList
                 userType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_0_TaskTimerList;
+                userType.Activator = Activate_0_TaskList;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -206,26 +206,26 @@ namespace PomodoroTimer.PomodoroTimer_XamlTypeInfo
                 xamlType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  PomodoroTimer.MainPage
-                userType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_2_MainPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 3:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 4:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 5:   //  PomodoroTimer.TaskList
+            case 2:   //  PomodoroTimer.TaskTimerList
                 userType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_5_TaskList;
+                userType.Activator = Activate_2_TaskTimerList;
                 userType.SetIsLocalType();
                 xamlType = userType;
+                break;
+
+            case 3:   //  PomodoroTimer.MainPage
+                userType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_3_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::PomodoroTimer.PomodoroTimer_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;

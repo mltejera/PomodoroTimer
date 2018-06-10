@@ -19,10 +19,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local2:TaskList">
-                    <Border Width="{StaticResource ControlDimension}"
+                    <Border Margin="8,8,8,8"
+                            Width="{StaticResource ControlDimension}"
                             Height="{StaticResource ControlDimension}"
+                            BorderThickness="2,2,2,2"
                             BorderBrush="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}">
-                        <Grid>
+                        <Grid Padding="8,8,8,8">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
@@ -121,11 +123,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local2:TaskTimerList">
-
                     <Border Width="{StaticResource ControlDimension}"
                             Height="{StaticResource ControlDimension}"
-                            BorderBrush="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}">
-                        <Grid>
+                            BorderBrush="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}"
+                            BorderThickness="2,2,2,2"
+                            Margin="8,8,8,8">
+                        <Grid  Padding="8,8,8,8">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
