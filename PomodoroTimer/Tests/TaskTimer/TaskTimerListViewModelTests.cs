@@ -74,8 +74,5 @@ namespace Tests
 
             Assert.AreEqual(viewModel.TaskTimers.Count, 8);
         }
-
-
-
     }
 }
