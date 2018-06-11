@@ -7,15 +7,22 @@
     xmlns:local2="using:PomodoroTimer">
 
     <x:Double x:Key="ControlDimension">420</x:Double>
-    
+    <x:Double x:Key="CheckBoxTextBlockWidth">364</x:Double>
 
     <DataTemplate x:Key="TaskToCompleteTemplate">
         <StackPanel Orientation="Horizontal" 
-                    HorizontalAlignment="Stretch">
-            
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,0,6">
+
             <CheckBox HorizontalAlignment="Stretch"
-                      IsChecked="{Binding IsComplete, Mode=TwoWay}"/>
-            <TextBox Text="{Binding TaskDescription, Mode=TwoWay}"/>
+                      IsChecked="{Binding IsComplete, Mode=TwoWay}">
+                <CheckBox.Content>
+                    <TextBox Text="{Binding TaskDescription, Mode=TwoWay}"
+                             Width="{StaticResource CheckBoxTextBlockWidth}"
+                             VerticalAlignment="Center"
+                             Margin="4,0,0,0"/>
+                </CheckBox.Content>
+            </CheckBox>
         </StackPanel>
     </DataTemplate>
 

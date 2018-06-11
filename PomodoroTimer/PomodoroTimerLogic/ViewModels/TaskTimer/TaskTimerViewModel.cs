@@ -116,12 +116,10 @@ namespace PomodoroTimerLogic.ViewModels
 
         private void initTimer()
         {
+            // Depreicated in favor of task based approach.
             //this.dispatcherTimer = new DispatcherTimer();
-
             //this.dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-
             //this.dispatcherTimer.Tick += DispatcherTimer_Tick;
-
             //TimeSpan tickLength = TimeSpan.FromMilliseconds(Constants.ASecondInMiliseconds);
 
             this.cancellationTokenSource = new CancellationTokenSource();
@@ -176,7 +174,6 @@ namespace PomodoroTimerLogic.ViewModels
         {
             this.cancellationTokenSource.Cancel();
             this.IsComplete = true;
-
             this.setIsRunningWithoutStartingTimer(false);
         }
 
@@ -185,6 +182,7 @@ namespace PomodoroTimerLogic.ViewModels
             if (!this.IsRunning)
             {
                 this.cancellationTokenSource = new CancellationTokenSource();
+                this.cancellationTokenSource.CancelAfter(this.taskTimerModel.RemainingMiliseconds + Constants.AMinuteInMiliSeconds); // this is important to ensure our task doesn't loop indefinetly.
                 this.cancellationToken = this.cancellationTokenSource.Token;
                 this.startTimerTaskAsync();
             }
@@ -227,8 +225,6 @@ namespace PomodoroTimerLogic.ViewModels
             this.cancellationTokenSource.Cancel();
             // We need a fresh token to restart the next timer
             this.cancellationTokenSource = new CancellationTokenSource();
-            // set the private event to avoid the toggle method in the public setter
-
             this.setIsRunningWithoutStartingTimer(false);
         }
 
@@ -264,9 +260,8 @@ namespace PomodoroTimerLogic.ViewModels
         //  The methods below are a to run a timer with C#'s built in DispatchTimer.
         //  Personally, I think it's the best way to build a simple stop watch where
         //  No work (other than updating the UI) is being done during the ticks.
-        //  HOWEVER, this will run completely on the UI thread, and the instructions specified
-        //  they're looking for competence in asynchronous programming, which this doesn't really demonstrate.
-        //  So these are depricated in favor of the methods above.
+        //  HOWEVER, the instructions specified they're looking for competence in asynchronous programming, which this doesn't really demonstrate.
+        //  So these are depricated in favor of the task based approach above.
 
         private void startTimer()
         {
@@ -287,10 +282,8 @@ namespace PomodoroTimerLogic.ViewModels
 
             if (this.TaskTimerModel.RemainingMiliseconds <= 0)
             {
-                this.stopTimer();
-                this.IsComplete = true;
+                this.handleTimerCompletion();
             }
         }
-
     }
 }
