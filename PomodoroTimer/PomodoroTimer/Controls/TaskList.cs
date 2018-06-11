@@ -7,7 +7,7 @@ namespace PomodoroTimer
 {
     public sealed class TaskList : Control
     {
-        public TaskToCompleteListViewModel viewModel = new TaskToCompleteListViewModel();
+        public TaskToCompleteListViewModel viewModel = new TaskToCompleteListViewModel(true);
 
         public TaskList()
         {

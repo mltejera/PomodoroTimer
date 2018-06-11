@@ -17,6 +17,22 @@ namespace Tests
             Assert.AreEqual(viewModel.NewTaskDescription, Constants.DefaultTaskDescription);
 
             Assert.IsNotNull(viewModel.AddTaskCommand);
+
+            Assert.AreEqual(viewModel.TaskToCompleteList.Count, 0);
+        }
+
+        [TestMethod]
+        public void TestTaskToCompleteViewModelInitPrePopulate()
+        {
+            TaskToCompleteListViewModel viewModel = new TaskToCompleteListViewModel(true);
+
+            Assert.IsNotNull(viewModel.TaskToCompleteList);
+
+            Assert.AreEqual(viewModel.NewTaskDescription, Constants.DefaultTaskDescription);
+
+            Assert.IsNotNull(viewModel.AddTaskCommand);
+
+            Assert.AreEqual(viewModel.TaskToCompleteList.Count, 4);
         }
 
         [TestMethod]
@@ -54,6 +70,17 @@ namespace Tests
             viewModel.AddTaskToComplete();
 
             Assert.AreEqual(viewModel.TaskToCompleteList.Count, 3);
+        }
+
+        [TestMethod]
+        public void TestTaskToCompleteViewModelAddTaskWithDescription()
+        {
+            TaskToCompleteListViewModel viewModel = new TaskToCompleteListViewModel();
+
+            viewModel.AddTaskToComplete(Constants.DefaultTaskDescription);
+
+            Assert.AreEqual(viewModel.TaskToCompleteList.Count, 1);
+            Assert.AreEqual(viewModel.TaskToCompleteList[0].TaskDescription, Constants.DefaultTaskDescription);
         }
     }
 }

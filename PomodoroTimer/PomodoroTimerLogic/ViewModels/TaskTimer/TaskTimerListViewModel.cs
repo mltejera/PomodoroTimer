@@ -24,13 +24,18 @@ namespace PomodoroTimerLogic.ViewModels
             }
         }
 
-        public TaskTimerListViewModel()
+        public TaskTimerListViewModel(bool prePopulate = false)
         {
             this.TaskTimers = new ObservableCollection<TaskTimerViewModel>();
 
             this.AddTimerCommand = new RelayCommand(AddTaskTimer);
 
             this.NewTimerDescription = Constants.DefaultTimerDescription;
+
+            if(prePopulate)
+            {
+                this.populateWithDefaults();
+            }
         }
 
         public void AddTaskTimer()
@@ -51,9 +56,9 @@ namespace PomodoroTimerLogic.ViewModels
             }
         }
 
-        public void PopulateWithDefaults()
+        private void populateWithDefaults()
         {
-            this.AddTaskTimer("Review Spec", Constants.TenSecondsInMiliseconds);
+            this.AddTaskTimer("Review Spec", Constants.TwentyFiveMinutesInMiliSeconds);
             this.AddTaskTimer("Get Coffee", Constants.FiveMinutesInMiliSeconds);
             this.AddTaskTimer("Write Tests", Constants.TwentyFiveMinutesInMiliSeconds);
             this.AddTaskTimer("Get Snack", Constants.FiveMinutesInMiliSeconds);

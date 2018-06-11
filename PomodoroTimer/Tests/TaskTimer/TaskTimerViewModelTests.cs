@@ -22,7 +22,6 @@ namespace Tests
 
             Assert.IsNotNull(viewModel.AddMinuteCommand);
             Assert.IsNotNull(viewModel.RemoveMinuteCommand);
-            Assert.IsNotNull(viewModel.ToggleStartStopCommand);
             Assert.IsNotNull(viewModel.ResetTimeCommand);
         }
 
@@ -43,7 +42,6 @@ namespace Tests
 
             Assert.IsNotNull(viewModel.AddMinuteCommand);
             Assert.IsNotNull(viewModel.RemoveMinuteCommand);
-            Assert.IsNotNull(viewModel.ToggleStartStopCommand);
             Assert.IsNotNull(viewModel.ResetTimeCommand);
         }
 
@@ -64,7 +62,6 @@ namespace Tests
 
             Assert.IsNotNull(viewModel.AddMinuteCommand);
             Assert.IsNotNull(viewModel.RemoveMinuteCommand);
-            Assert.IsNotNull(viewModel.ToggleStartStopCommand);
             Assert.IsNotNull(viewModel.ResetTimeCommand);
 
         }
@@ -87,7 +84,6 @@ namespace Tests
 
             Assert.IsNotNull(viewModel.AddMinuteCommand);
             Assert.IsNotNull(viewModel.RemoveMinuteCommand);
-            Assert.IsNotNull(viewModel.ToggleStartStopCommand);
             Assert.IsNotNull(viewModel.ResetTimeCommand);
         }
 

@@ -116,37 +116,43 @@ namespace PomodoroTimerLogic.ViewModels
 
         private void initTimer()
         {
-            this.dispatcherTimer = new DispatcherTimer();
+            //this.dispatcherTimer = new DispatcherTimer();
 
-            this.dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            //this.dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
 
-            this.dispatcherTimer.Tick += DispatcherTimer_Tick;
+            //this.dispatcherTimer.Tick += DispatcherTimer_Tick;
 
-            TimeSpan tickLength = TimeSpan.FromMilliseconds(Constants.ASecondInMiliseconds);
+            //TimeSpan tickLength = TimeSpan.FromMilliseconds(Constants.ASecondInMiliseconds);
 
             this.cancellationTokenSource = new CancellationTokenSource();
         }
 
         public void AddMinute()
         {
-            this.TaskTimerModel.RemainingMiliseconds += Constants.AMinuteInMiliSeconds;
-            this.TaskTimerModel.TotalMiliseconds += Constants.AMinuteInMiliSeconds;
-            this.IsComplete = false;
-
-            OnPropertyChanged("TimeRemaining");
+            if (!this.IsRunning)
+            {
+                this.TaskTimerModel.RemainingMiliseconds += Constants.AMinuteInMiliSeconds;
+                this.TaskTimerModel.TotalMiliseconds += Constants.AMinuteInMiliSeconds;
+                this.IsComplete = false;
+                
+                OnPropertyChanged("TimeRemaining");
+            }
         }
 
         public void RemoveMinute()
         {
-            if(this.TaskTimerModel.RemainingMiliseconds > Constants.AMinuteInMiliSeconds && this.TaskTimerModel.TotalMiliseconds > Constants.AMinuteInMiliSeconds)
+            if (!this.IsRunning)
             {
-                this.TaskTimerModel.RemainingMiliseconds -= Constants.AMinuteInMiliSeconds;
-                this.TaskTimerModel.TotalMiliseconds -= Constants.AMinuteInMiliSeconds;
-            }
-            else
-            {
-                this.TaskTimerModel.RemainingMiliseconds = 0;
-                this.TaskTimerModel.TotalMiliseconds = 0;
+                if (this.TaskTimerModel.RemainingMiliseconds > Constants.AMinuteInMiliSeconds && this.TaskTimerModel.TotalMiliseconds > Constants.AMinuteInMiliSeconds)
+                {
+                    this.TaskTimerModel.RemainingMiliseconds -= Constants.AMinuteInMiliSeconds;
+                    this.TaskTimerModel.TotalMiliseconds -= Constants.AMinuteInMiliSeconds;
+                }
+                else
+                {
+                    this.TaskTimerModel.RemainingMiliseconds = 0;
+                    this.TaskTimerModel.TotalMiliseconds = 0;
+                }
             }
 
             OnPropertyChanged("TimeRemaining");
@@ -157,31 +163,35 @@ namespace PomodoroTimerLogic.ViewModels
             if (this.IsRunning)
             {
                 this.stopTimerTask();
+                //this.startTimer();
             }
             else
             {
                 this.startTimerTask();
+                //this.stopTimer();
             }
         }
 
         private void handleTimerCompletion()
         {
             this.cancellationTokenSource.Cancel();
-            this.taskTimerModel.IsRunning = false;
-            OnPropertyChanged("IsRunning");
             this.IsComplete = true;
+
+            this.setIsRunningWithoutStartingTimer(false);
         }
 
         public void startTimerTask()
         {
-            this.cancellationTokenSource = new CancellationTokenSource();
-            this.cancellationToken = this.cancellationTokenSource.Token;
-            this.startTimerTaskAsync();
+            if (!this.IsRunning)
+            {
+                this.cancellationTokenSource = new CancellationTokenSource();
+                this.cancellationToken = this.cancellationTokenSource.Token;
+                this.startTimerTaskAsync();
+            }
         }
 
-        //  For the simpler way to run a timer, see the comments and functions below.
-
-        private async Task<bool> startTimerTaskAsync()
+        //  For the more basic way to run a timer, see the comments and functions below.
+        private async Task startTimerTaskAsync()
         {
             // Get off the UI thread.
             await Task.Run(async () =>
@@ -194,7 +204,7 @@ namespace PomodoroTimerLogic.ViewModels
 
                     this.taskTimerModel.RemainingMiliseconds -= Constants.ASecondInMiliseconds;
 
-                    // jump back to the UI thread so we can update the string
+                    // jump back to the UI thread every second so we can update the string
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
                         this.OnPropertyChanged("TimeRemaining");
@@ -209,12 +219,7 @@ namespace PomodoroTimerLogic.ViewModels
                         this.handleTimerCompletion();
                     });
                 }
-
-                this.taskTimerModel.IsRunning = false;
-                OnPropertyChanged("IsRunning");
             });
-
-            return this.taskTimerModel.IsComplete;
         }
 
         private void stopTimerTask()
@@ -222,17 +227,28 @@ namespace PomodoroTimerLogic.ViewModels
             this.cancellationTokenSource.Cancel();
             // We need a fresh token to restart the next timer
             this.cancellationTokenSource = new CancellationTokenSource();
+            // set the private event to avoid the toggle method in the public setter
+
+            this.setIsRunningWithoutStartingTimer(false);
+        }
+
+        private void setIsRunningWithoutStartingTimer(bool value)
+        {
+            this.taskTimerModel.IsRunning = value;
+            OnPropertyChanged("IsRunning");
         }
 
         public void ResetTimer()
         {
-            this.TaskTimerModel.IsRunning = false;
-            this.IsComplete = false;
-            this.taskTimerModel.RemainingMiliseconds = this.taskTimerModel.TotalMiliseconds;
-            this.cancellationTokenSource.Cancel();
+            if(!this.IsRunning)
+            {
+                this.setIsRunningWithoutStartingTimer(false);
+                this.IsComplete = false;
+                this.taskTimerModel.RemainingMiliseconds = this.taskTimerModel.TotalMiliseconds;
+                this.cancellationTokenSource.Cancel();
 
-            OnPropertyChanged("IsRunning");
-            OnPropertyChanged("TimeRemaining");
+                OnPropertyChanged("TimeRemaining");
+            }
         }
 
         public string ConvertMilisecondsToHumanTime(int miliseconds)
@@ -254,14 +270,14 @@ namespace PomodoroTimerLogic.ViewModels
 
         private void startTimer()
         {
-            this.IsRunning = true;
+            this.setIsRunningWithoutStartingTimer(true);
             this.dispatcherTimer.Start();
         }
 
         private void stopTimer()
         {
             this.dispatcherTimer.Stop();
-            this.IsRunning = false;
+            this.setIsRunningWithoutStartingTimer(false);
         }
 
         private void DispatcherTimer_Tick(object sender, object e)
@@ -272,7 +288,7 @@ namespace PomodoroTimerLogic.ViewModels
             if (this.TaskTimerModel.RemainingMiliseconds <= 0)
             {
                 this.stopTimer();
-                this.taskTimerModel.IsComplete = true;
+                this.IsComplete = true;
             }
         }
 

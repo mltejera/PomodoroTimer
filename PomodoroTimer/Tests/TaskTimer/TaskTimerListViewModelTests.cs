@@ -67,14 +67,10 @@ namespace Tests
             Assert.AreEqual(viewModel.TaskTimers.Count, 0);
         }
 
-
-
         [TestMethod]
         public void TaskTimerListViewModelPopulateWithDefaults()
         {
-            TaskTimerListViewModel viewModel = new TaskTimerListViewModel();
-
-            viewModel.PopulateWithDefaults();
+            TaskTimerListViewModel viewModel = new TaskTimerListViewModel(true);
 
             Assert.AreEqual(viewModel.TaskTimers.Count, 8);
         }

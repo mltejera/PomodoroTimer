@@ -7,14 +7,12 @@ namespace PomodoroTimer
 {
     public sealed class TaskTimerList : Control
     {
-        public TaskTimerListViewModel viewModel = new TaskTimerListViewModel();
+        public TaskTimerListViewModel viewModel = new TaskTimerListViewModel(true);
 
         public TaskTimerList()
         {
             this.DefaultStyleKey = typeof(TaskTimerList);
             this.DataContext = viewModel;
-
-            viewModel.PopulateWithDefaults();
         }
     }
 }

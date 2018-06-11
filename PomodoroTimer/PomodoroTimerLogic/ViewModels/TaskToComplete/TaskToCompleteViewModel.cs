@@ -29,7 +29,7 @@ namespace PomodoroTimerLogic.ViewModels
                 this.OnPropertyChanged("IsComplete");
             }
         }
-        
+
         public TaskToCompleteViewModel()
         {
             this.TaskModel = new TaskToComplete();
@@ -47,6 +47,8 @@ namespace PomodoroTimerLogic.ViewModels
         public void ToggleCompletion()
         {
             this.IsComplete = !this.TaskModel.IsComplete;
+
+            // Handle completion toggle appropriatley.
         }
 
     }
