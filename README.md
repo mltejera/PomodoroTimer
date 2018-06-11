@@ -12,6 +12,9 @@ There are 3 projects:
         There are also a few converters to make defining the view models easier.
     PomodoroTimerLogic
         The view models and models live here. There is some boiler plate code in /Common to better enable MVVM.
+        Note that there are two approaches coded here. One using the dispatch timer class, and the other using tasks.
+        The task based approach is the one that currently runs, as the instructions specified they were looking for
+        competence in async programming, and this better demonstrates that.
     Tests
         The unit tests, broken up by file.
 
